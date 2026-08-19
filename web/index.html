@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Game Calculator — a gamified browser calculator with combo multipliers, particle effects, and a live scoring system." />
+  <title>Game Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app" id="app">
+
+    <!-- Header -->
+    <header class="header">
+      <span class="logo">GAME CALC</span>
+      <span class="combo-badge" id="comboBadge">COMBO x1</span>
+    </header>
+
+    <!-- Score Bar -->
+    <div class="score-bar">
+      <div class="score-left">
+        <span class="score-label">SCORE</span>
+        <span class="score-value" id="scoreValue">0</span>
+      </div>
+      <div class="score-right">
+        <span class="stat" id="calcsLabel">Calcs: 0</span>
+        <span class="stat" id="bestCombo">Best combo: x1</span>
+      </div>
+    </div>
+
+    <!-- Display -->
+    <div class="display-wrap">
+      <div class="display" id="display">
+        <div class="display-expr" id="displayExpr"></div>
+        <div class="display-main" id="displayMain">0</div>
+      </div>
+      <!-- Particle canvas -->
+      <canvas class="particle-canvas" id="particleCanvas"></canvas>
+    </div>
+
+    <!-- Glow strip -->
+    <div class="glow-strip" id="glowStrip"></div>
+
+    <!-- Buttons -->
+    <div class="btn-grid" id="btnGrid">
+      <button class="btn btn-util" id="btn-C"      data-val="C">C</button>
+      <button class="btn btn-util" id="btn-negate"  data-val="+/-">+/-</button>
+      <button class="btn btn-util" id="btn-percent" data-val="%">%</button>
+      <button class="btn btn-op"   id="btn-div"     data-val="/">/</button>
+
+      <button class="btn btn-num"  id="btn-7" data-val="7">7</button>
+      <button class="btn btn-num"  id="btn-8" data-val="8">8</button>
+      <button class="btn btn-num"  id="btn-9" data-val="9">9</button>
+      <button class="btn btn-op"   id="btn-mul" data-val="*">x</button>
+
+      <button class="btn btn-num"  id="btn-4" data-val="4">4</button>
+      <button class="btn btn-num"  id="btn-5" data-val="5">5</button>
+      <button class="btn btn-num"  id="btn-6" data-val="6">6</button>
+      <button class="btn btn-op"   id="btn-sub" data-val="-">-</button>
+
+      <button class="btn btn-num"  id="btn-1" data-val="1">1</button>
+      <button class="btn btn-num"  id="btn-2" data-val="2">2</button>
+      <button class="btn btn-num"  id="btn-3" data-val="3">3</button>
+      <button class="btn btn-op"   id="btn-add" data-val="+">+</button>
+
+      <button class="btn btn-num"  id="btn-00" data-val="00">00</button>
+      <button class="btn btn-num"  id="btn-0"  data-val="0">0</button>
+      <button class="btn btn-num"  id="btn-dot" data-val=".">.</button>
+      <button class="btn btn-eq"   id="btn-eq"  data-val="=">=</button>
+    </div>
+
+    <!-- History -->
+    <div class="history-panel">
+      <span class="history-title">HISTORY</span>
+      <p class="history-text" id="historyText">--</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,197 +1,209 @@
-# 🎮 Game Calculator
+# Game Calculator
 
-> A gamified desktop calculator built with Python + Tkinter — featuring particle effects, combo multipliers, a live score system, and a sleek neon dark-mode UI.
+A gamified desktop and browser calculator built with Python (Tkinter) and HTML/CSS/JavaScript.
+Enter calculations, chain them fast to build combo multipliers, earn points, and watch particle effects burst on every result.
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
-![Tkinter](https://img.shields.io/badge/GUI-Tkinter-purple)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+## Table of Contents
 
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 🔢 **Full Calculator** | Addition, subtraction, multiplication, division, percentage, negation |
-| 🎯 **Scoring System** | Earn points for every calculation — more complex expressions = more points |
-| ⚡ **Combo Multiplier** | Chain calculations within 4 seconds to build up a combo (up to x10!) |
-| 💥 **Particle Effects** | Animated particles burst on every button press and calculation |
-| 📈 **Floating Score Text** | `+pts` and `COMBO!` text floats up after each successful evaluation |
-| 📜 **History Panel** | Displays your last 5 calculations at a glance |
-| ⌨️ **Keyboard Support** | Full keyboard input — numbers, operators, Enter, Escape, Backspace |
-| 🌈 **Neon Dark UI** | Custom dark-mode colour palette with hover animations and a glow strip |
-| 📊 **Live Stats** | Tracks total calculations done and your best combo streak |
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Desktop Version (Python)](#desktop-version-python)
+  - [Web Version (Browser)](#web-version-browser)
+- [How to Play](#how-to-play)
+- [Scoring](#scoring)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
 
 ---
 
-## 🖼️ Preview
+## Overview
 
-```
-╔══════════════════════════════╗
-║  GAME CALC          COMBO x3 ║
-║  SCORE  1,250    Calcs: 8    ║
-║         Best combo: x5       ║
-╠══════════════════════════════╣
-║  42 + 8 =                    ║
-║                           50 ║
-╠══════════════════════════════╣  <- neon glow strip
-║  C    +/-   %    /           ║
-║  7     8    9    *           ║
-║  4     5    6    -           ║
-║  1     2    3    +           ║
-║  00    0    .    =           ║
-╠══════════════════════════════╣
-║ HISTORY                      ║
-║ 42+8=50  |  10*3=30  | ...   ║
-╚══════════════════════════════╝
-```
+Game Calculator turns everyday arithmetic into a game. Every calculation you evaluate earns you points. Chain multiple calculations quickly to activate a combo multiplier (up to x10). The more complex your expression, the higher your score.
+
+The project ships in two forms:
+
+- **Desktop version** — a standalone Python app using Tkinter, no dependencies required beyond the Python standard library.
+- **Web version** — a pure HTML, CSS, and JavaScript implementation that runs directly in any modern browser.
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Python 3.8 or higher** — [Download here](https://www.python.org/downloads/)
-- `tkinter` — ships with Python on all major platforms (no extra install needed)
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/your-username/PY-Calculator.git
-
-# 2. Navigate into the project directory
-cd PY-Calculator
-
-# 3. Run the app
-python game_calculator.py
-```
-
-> **Windows users**: You can also double-click `game_calculator.py` if Python is associated with `.py` files.
-
----
-
-## 🎮 How to Play
-
-1. **Enter an expression** using the on-screen buttons or your keyboard.
-2. Press **`=`** (or `Enter`) to evaluate — a particle burst fires and your score updates.
-3. **Chain calculations fast** (within 4 seconds) to build a combo multiplier — up to **x10**.
-4. **More complex expressions** (more operators, longer inputs) yield higher base points.
-5. Beat your **best combo streak** tracked in the top-right stats panel.
-
-### Scoring Formula
-
-```
-Points = (num_operators x 25 + expression_length x 2) x combo_multiplier
-Minimum 10 points per calculation.
-```
-
-### Combo Colours
-
-| Combo Level | Colour |
-|---|---|
-| 1-2 | Cyan |
-| 3-4 | Gold |
-| 5+  | Red (on fire!) |
-
----
-
-## ⌨️ Keyboard Shortcuts
-
-| Key | Action |
-|---|---|
-| `0-9` | Input digit |
-| `.` | Decimal point |
-| `+` `-` `*` `/` | Operators |
-| `Enter` / `Numpad Enter` | Evaluate (`=`) |
-| `Escape` | Clear (`C`) |
-| `Backspace` | Delete last character |
-
----
-
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 PY-Calculator/
-├── game_calculator.py   # Main application — all UI, logic, and effects
-└── README.md            # Project documentation (you are here)
+│
+├── src/
+│   └── game_calculator.py    # Desktop app (Python + Tkinter)
+│
+├── web/
+│   ├── index.html            # Web app entry point
+│   ├── style.css             # Styles and dark theme
+│   └── script.js             # Game logic, particles, scoring
+│
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-### Key Classes
+---
 
-| Class | Responsibility |
-|---|---|
-| `GameCalculator` | Root application class — builds the UI, handles button logic, scoring, history, and animation loop |
-| `Particle` | Animated confetti particle rendered on the canvas; fades and falls under simulated gravity |
-| `FloatingText` | Floating score/combo label that drifts upward and fades out after each calculation |
+## Features
+
+- Standard calculator operations: addition, subtraction, multiplication, division, percentage, and negation
+- Scoring system that rewards complexity — more operators and longer expressions earn more points
+- Combo multiplier that grows when you chain calculations within 4 seconds (up to x10)
+- Particle burst animation on every button press and result
+- Floating score labels that appear after each successful evaluation
+- History panel showing the last 5 calculations
+- Full keyboard support in both versions
+- Neon dark UI with hover effects and a colour-coded glow strip
 
 ---
 
-## 🎨 Colour Palette
+## Getting Started
 
-| Token | Hex | Usage |
-|---|---|---|
-| `BG` | `#0d0d1a` | App background |
-| `PANEL` | `#12122a` | Score bar & history panel |
-| `CARD` | `#1a1a35` | Default button face |
-| `ACCENT` | `#7c3aed` | `=` button & glow strip |
-| `ACCENT2` | `#06b6d4` | Operator buttons |
-| `GOLD` | `#f59e0b` | Score label & combo text |
-| `RED` | `#ef4444` | Error state |
-| `GREEN` | `#10b981` | Success state |
-| `NEON_GLOW` | `#a78bfa` | Hover highlight |
-| `DISPLAY_BG` | `#0a0a1f` | Calculator display canvas |
+### Desktop Version (Python)
+
+**Requirements**
+
+- Python 3.8 or higher
+- `tkinter` (included with Python on Windows, macOS, and most Linux distributions)
+
+**Run**
+
+```bash
+python src/game_calculator.py
+```
+
+On Windows, you can also double-click the file if Python is associated with `.py` files.
 
 ---
 
-## 🔧 Configuration (source-level)
+### Web Version (Browser)
 
-All visual constants are declared at the top of `game_calculator.py` and can be freely changed:
+No installation or server required. Open the file directly in your browser:
+
+```
+web/index.html
+```
+
+Or right-click `index.html` and choose "Open with" your browser of choice.
+
+---
+
+## How to Play
+
+1. Enter a number or expression using the buttons or your keyboard.
+2. Press `=` or `Enter` to evaluate.
+3. A particle burst fires and your score updates.
+4. Keep evaluating within 4 seconds to build your combo multiplier.
+5. The combo badge and glow strip change colour as your streak grows.
+6. An error (syntax or divide-by-zero) resets your combo to 1.
+
+---
+
+## Scoring
+
+Points are calculated per evaluation using the following formula:
+
+```
+base_points = (number_of_operators x 25) + (expression_length x 2)
+final_points = max(10, base_points) x combo_multiplier
+```
+
+The combo multiplier increases by 1 for each successive calculation completed within 4 seconds, capped at x10.
+
+**Combo colour indicators**
+
+| Streak | Colour |
+|--------|--------|
+| 1 to 2 | Cyan   |
+| 3 to 4 | Gold   |
+| 5 or more | Red |
+
+---
+
+## Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| 0 through 9 | Enter digits |
+| . | Decimal point |
+| + - * / | Operators |
+| Enter or Numpad Enter | Evaluate |
+| Escape | Clear |
+| Backspace | Delete last character |
+
+---
+
+## Configuration
+
+### Desktop (Python)
+
+All colour constants are defined at the top of `src/game_calculator.py` and can be changed freely:
 
 ```python
-ACCENT  = "#7c3aed"   # change to your favourite accent colour
-GOLD    = "#f59e0b"   # score / combo colour
+ACCENT  = "#7c3aed"    # primary accent colour
+GOLD    = "#f59e0b"    # score and combo label colour
 ```
 
-Animation speed is controlled by the frame-rate constant in `_animate_loop`:
+The animation frame rate is set in `_animate_loop`:
 
 ```python
-self.root.after(16, self._animate_loop)   # ~60 fps — increase value for slower animations
+self.root.after(16, self._animate_loop)   # 16ms = ~60 fps
 ```
 
-Combo window (seconds between chained calculations):
+The combo time window (in seconds) is set in `_evaluate`:
 
 ```python
-if now - self.last_correct < 4:   # change 4 to adjust combo time window
+if now - self.last_correct < 4:    # change to adjust combo window
+```
+
+### Web (JavaScript)
+
+Colours are controlled via CSS custom properties in `web/style.css`:
+
+```css
+:root {
+  --accent:  #7c3aed;
+  --gold:    #f59e0b;
+}
+```
+
+The combo window is set in `web/script.js`:
+
+```js
+if (now - state.lastCorrect < 4) {   // seconds
 ```
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Here are some ideas:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit: `git commit -m "feat: describe your change"`
+4. Push to your fork: `git push origin feature/your-feature-name`
+5. Open a Pull Request.
 
-- 🔊 Sound effects on button press / combo
-- 💾 Persistent high-score saving (JSON / SQLite)
-- 🧮 Scientific mode (sin, cos, log, sqrt ...)
-- 🏆 Leaderboard screen
-- 🖥️ Fullscreen / resizable layout
+**Ideas for contributions**
 
-**Steps:**
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "feat: add your feature"`
-4. Push to your fork: `git push origin feature/your-feature`
-5. Open a Pull Request
+- Sound effects on button press and combo activation
+- Persistent high-score storage using JSON or localStorage
+- Scientific calculator mode (sin, cos, log, square root)
+- Leaderboard or session history screen
+- Responsive mobile layout improvements
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the MIT License.
 
 ```
 MIT License
@@ -219,11 +231,8 @@ SOFTWARE.
 
 ---
 
-## 👤 Author
+## Author
 
 **Olude Adeola**
-- Email: oludeadeola67@gmail.com
-
----
-
-<p align="center">Made with love and Python</p>
+Email: oludeadeola67@gmail.com
+GitHub: https://github.com/Oludeadeola
