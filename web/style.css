@@ -168,7 +168,8 @@ body {
   word-break: break-all;
   text-align: right;
   line-height: 1.1;
-  transition: font-size 0.1s;
+  transition: font-size 0.15s ease, color 0.2s;
+  letter-spacing: -0.5px;
 }
 
 .particle-canvas {
