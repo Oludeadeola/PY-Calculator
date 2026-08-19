@@ -468,6 +468,7 @@ class GameCalculator:
 #  ENTRY POINT
 # ─────────────────────────────────────────────
 def main():
+    """Launch the Game Calculator application."""
     root = tk.Tk()
 
     # Centre window
