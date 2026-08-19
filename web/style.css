@@ -10,6 +10,20 @@
   padding: 0;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d0d1a; }
+::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 3px; }
+
+/* Text selection colour */
+::selection { background: #7c3aed55; color: #f8fafc; }
+
+/* Focus outline for keyboard accessibility */
+.btn:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
 :root {
   --bg:          #0d0d1a;
   --panel:       #12122a;
