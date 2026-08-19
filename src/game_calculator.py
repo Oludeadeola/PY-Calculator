@@ -1,9 +1,19 @@
+"""
+game_calculator.py
+------------------
+A gamified desktop calculator built with Python and Tkinter.
+
+Features:
+  - Standard arithmetic operations (add, subtract, multiply, divide, %, negate)
+  - Score system with combo multiplier (up to x10)
+  - Canvas-based particle effects and floating score labels
+  - Calculation history panel (last 5 entries)
+  - Full keyboard support
+"""
+
 import tkinter as tk
-from tkinter import font as tkfont
-import math
 import random
 import time
-import threading
 
 # ─────────────────────────────────────────────
 #  COLOUR PALETTE
