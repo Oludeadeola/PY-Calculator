@@ -16,7 +16,6 @@ env/
 .venv/
 
 # IDEs
-.vscode/
 .idea/
 *.suo
 *.user
@@ -28,3 +27,5 @@ desktop.ini
 
 # Logs
 *.log
+config.bat
+node_modules
