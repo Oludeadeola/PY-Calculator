@@ -214,10 +214,17 @@ function percent() {
 }
 
 function appendChar(ch) {
-  if (state.resultShown && !["+" , "-", "*", "/"].includes(ch)) {
+  if (state.resultShown && !["+", "-", "*", "/"].includes(ch)) {
     state.expression = "";
   }
   state.resultShown = false;
+
+  // Replace trailing operator instead of stacking two
+  const ops = ["+", "-", "*", "/"];
+  if (ops.includes(ch) && ops.includes(state.expression.slice(-1))) {
+    state.expression = state.expression.slice(0, -1);
+  }
+
   state.expression += ch;
 }
 
