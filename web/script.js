@@ -163,9 +163,13 @@ function updateComboUI() {
 }
 
 function setGlow(colour, resetDelay = 600) {
-  ui.glowStrip.style.background = colour;
+  ui.glowStrip.style.background  = colour;
+  ui.glowStrip.style.boxShadow   = `0 4px 22px ${colour}99`;
   if (resetDelay) {
-    setTimeout(() => { ui.glowStrip.style.background = "var(--accent)"; }, resetDelay);
+    setTimeout(() => {
+      ui.glowStrip.style.background = "var(--accent)";
+      ui.glowStrip.style.boxShadow  = "0 4px 18px rgba(124, 58, 237, 0.5)";
+    }, resetDelay);
   }
 }
 

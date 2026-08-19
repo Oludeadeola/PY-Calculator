@@ -160,7 +160,7 @@ class GameCalculator:
                                                font=("Segoe UI", 34, "bold"))
 
         # ── Operator glow strip ───────────────
-        self.glow_strip = tk.Frame(self.root, bg=ACCENT, height=3)
+        self.glow_strip = tk.Frame(self.root, bg=ACCENT, height=8)
         self.glow_strip.pack(fill="x", padx=18)
 
         # ── Buttons ───────────────────────────

@@ -168,11 +168,12 @@ body {
 
 /* ── Glow Strip ───────────────────────────────────────────── */
 .glow-strip {
-  height: 3px;
+  height: 8px;
   background: var(--accent);
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 4px 4px;
   margin-bottom: 12px;
-  transition: background 0.4s;
+  transition: background 0.4s, box-shadow 0.4s;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.5);
 }
 
 /* ── Button Grid ──────────────────────────────────────────── */
